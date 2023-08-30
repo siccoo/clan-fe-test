@@ -1,13 +1,225 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap");
+
+:root {
+  /* Primary */
+  --marine_blue: #02295a;
+  --purplish_blue: #473dff;
+  --pastel_blue: #adbeff;
+  --light_blue: #bfe2fd;
+  --strawberry_red: #ed3548;
+  --success_green: #39ed35;
+
+  /* Neutral */
+  --cool_gray: #9699ab;
+  --light_gray: #d6d9e6;
+  --magnolia: #f0f6ff;
+  --alabaster: #fafcff;
+  --white: #ffffff;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  background-color: var(--magnolia);
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.mainOuterDiv {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileTopBar {
+  display: none;
+}
+
+.mainContainer {
+  background-color: var(--white);
+  border-radius: 15px;
+  width: 940px;
+  height: 568px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+  padding: 18px;
+  box-shadow: 0px 10px 25px rgba(214, 217, 230, 0.5);
+}
+
+.desktopSideBar {
+  height: 100%;
+  width: 100%;
+  max-height: 568px;
+  max-width: 275px;
+  background-image: url("bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+}
+
+.desktopSideBarContainer {
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.step1Container,
+.step2Container,
+.step3Container,
+.step4Container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
+  margin-top: 30px;
+}
+
+.numberCircle {
+  border: 1px var(--white) solid;
+  border-radius: 18px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.numberCircle.active {
+  background-color: var(--light_blue);
+  border: 1px var(--light_blue) solid;
+  color: var(--marine_blue);
+}
+
+.desktopSideBarTextContainer {
+  margin-left: 10px;
+}
+
+.desktopSideBarHeader {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--white);
+  opacity: 50%;
+  font-size: 12px;
+}
+
+.desktopSideBarText {
+  margin: 0;
+  margin-top: 5px;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.1em;
+  color: var(--white);
+}
+
+.mainContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.stepHeader {
+  color: var(--marine_blue);
+  margin: 0;
+}
+
+.stepSubText {
+  color: var(--cool_gray);
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.personalInfoContainer,
+.selectPlanContainer,
+.addOnsContainer,
+.summaryContainer {
+  padding: 40px 80px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/******************************************/
+/* Step1 Page */
+.label-error-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-label,
+.email-label,
+.phone-label {
+  margin-top: 25px;
+  color: var(--marine_blue);
+}
+
+.error-message {
+  margin: 25px 0 0;
+  color: var(--strawberry_red);
+  text-align: right;
+  padding-left: 5px;
+}
+
+.name-input,
+.email-input,
+.phone-input {
+  margin-top: 10px;
+  background-color: transparent;
+  border: 1px solid var(--light_gray);
+  border-radius: 10px;
+  height: 48px;
+  padding-left: 15px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.name-input:hover,
+.email-input:hover,
+.phone-input:hover {
+  outline: none;
+  border: 1px solid var(--purplish_blue);
+  cursor: pointer;
+}
+
+.name-input:focus-visible,
+.email-input:focus-visible,
+.phone-input:focus-visible {
+  outline: none;
+  border: 1px solid var(--purplish_blue);
+  cursor: text;
+}
+
+.name-input.error,
+.email-input.error,
+.phone-input.error {
+  outline: none;
+  border: 1px solid var(--strawberry_red);
+}
+
+.name-input.passed,
+.email-input.passed,
+.phone-input.passed {
+  outline: none;
+  border: 1px solid var(--success_green);
+}
+
+.desktopNextStepBtn, 
+.mobileNextStepBtn {
+  color: var(--white);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  background-color: var(--marine_blue);
+  border: 1px solid var(--marine_blue);
+  padding: 16px;
+  width: 125px;
 }
