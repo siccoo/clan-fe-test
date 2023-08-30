@@ -82,11 +82,15 @@ const StepOne = () => {
               placeholder="e.g. +44 0123 456 789"
             ></input>
 
-            <button className="desktopNextStepBtn">Next Step</button>
+            <div className="desktopBtnContainer">
+              <span></span>
+              <button className="desktopNextStepBtn">Next Step</button>
+            </div>
           </div>
         </div>
       </div>
       <div className="mobileBottomBar">
+        <span></span>
         <button className="mobileNextStepBtn">Next Step</button>
       </div>
     </>

@@ -120,12 +120,12 @@ body {
   display: flex;
 }
 
-.stepHeader {
+.step1Header {
   color: var(--marine_blue);
   margin: 0;
 }
 
-.stepSubText {
+.step1SubText {
   color: var(--cool_gray);
   margin-bottom: 15px;
   margin-top: 15px;
@@ -211,15 +211,93 @@ input:-webkit-autofill:active {
   border: 1px solid var(--success_green);
 }
 
-.desktopNextStepBtn, 
-.mobileNextStepBtn {
+/******************************************/
+
+.desktopBtnContainer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.desktopBackBtn,
+.mobileBackBtn {
+  background-color: transparent;
+  border: none;
+  font-size: 16px;
+  color: var(--cool_gray);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.desktopBackBtn:hover,
+.mobileBackBtn:hover {
+  color: var(--marine_blue);
+}
+
+.desktopBackBtn {
+  font-size: 16px;
+}
+
+.mobileBackBtn {
+  font-size: 14px;
+}
+
+.mobileNextStepBtn,
+.mobileConfirmBtn {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 30px;
+  font-size: 14px;
+}
+
+.desktopNextStepBtn,
+.mobileNextStepBtn,
+.desktopConfirmBtn,
+.mobileConfirmBtn {
   color: var(--white);
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
   font-weight: 500;
+}
+
+.desktopNextStepBtn,
+.mobileNextStepBtn {
   background-color: var(--marine_blue);
   border: 1px solid var(--marine_blue);
-  padding: 16px;
+}
+
+.desktopNextStepBtn:hover,
+.mobileNextStepBtn:hover {
+  background-color: #02295ad9;
+  border: 1px solid #02295ad9;
+}
+
+.desktopConfirmBtn,
+.mobileConfirmBtn {
+  background-color: var(--purplish_blue);
+  border: 1px solid var(--purplish_blue);
+}
+
+.desktopConfirmBtn:hover,
+.mobileConfirmBtn:hover {
+  background-color: #473dff99;
+  border: 1px solid #473dff99;
+}
+
+.desktopNextStepBtn,
+.desktopConfirmBtn {
+  height: 48px;
   width: 125px;
+}
+
+.mobileNextStepBtn,
+.mobileConfirmBtn {
+  height: 40px;
+  padding: 0 15px;
+}
+
+.mobileBottomBar {
+  display: none;
 }
