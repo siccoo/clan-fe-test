@@ -13,6 +13,6 @@ export const store = configureStore({
         phone: phoneReducer,
         billingOption: billingOptionReducer,
         billingType: billingTypeReducer,
-        addOns: addOnsReducer,
+        addOns: addOnsReducer
     }
 })
