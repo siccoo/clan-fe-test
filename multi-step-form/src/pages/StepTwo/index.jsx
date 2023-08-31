@@ -237,8 +237,8 @@ const StepTwo = () => {
         </div>
         <div className="mainContent">
           <div className="selectPlanContainer">
-            <h1 className="stepHeader">Select your plan</h1>
-            <p className="stepSubText">
+            <h1 className="step1Header">Select your plan</h1>
+            <p className="step1SubText">
               You have the option of monthly or yearly billing.
             </p>
             <p className="add-ons-error-message hide" ref={errorMessage}>

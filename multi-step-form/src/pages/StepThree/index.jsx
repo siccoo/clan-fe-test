@@ -1,6 +1,116 @@
-import React from 'react'
+import React, { useRef, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import { selectBillingType } from "../../services/billingTypeSlice";
+import {
+  saveOS,
+  saveLS,
+  saveCP,
+  selectOnlineService,
+  selectLargerStorage,
+  selectCustomisableProfile,
+} from "../../services/addOnsSlice";
 
 const StepThree = () => {
+
+  const dispatch = useDispatch();
+  const billingType = useSelector(selectBillingType);
+  const onlineService = useSelector(selectOnlineService);
+  const largerStorage = useSelector(selectLargerStorage);
+  const customisableProfile = useSelector(selectCustomisableProfile);
+
+  const onlineServiceMonthlyPrice = useRef();
+  const onlineServiceYearlyPrice = useRef();
+  const largerStorageMonthlyPrice = useRef();
+  const largerStorageYearlyPrice = useRef();
+  const customisableProfileMonthlyPrice = useRef();
+  const customisableProfileYearlyPrice = useRef();
+
+  const onlineServiceAddOn = useRef();
+  const largerStorageAddOn = useRef();
+  const customisableProfileAddOn = useRef();
+  const onlineServiceInput = useRef();
+  const largerStorageInput = useRef();
+  const customisableProfileInput = useRef();
+
+  useEffect(() => {
+    if (billingType === "yearly") {
+      let OSMonthlyPrice = onlineServiceMonthlyPrice.current;
+      let LSMonthlyPrice = largerStorageMonthlyPrice.current;
+      let CPMonthlyPrice = customisableProfileMonthlyPrice.current;
+      let OSYearlyPrice = onlineServiceYearlyPrice.current;
+      let LSYearlyPrice = largerStorageYearlyPrice.current;
+      let CPYearlyPrice = customisableProfileYearlyPrice.current;
+      OSMonthlyPrice.classList.add("hide");
+      LSMonthlyPrice.classList.add("hide");
+      CPMonthlyPrice.classList.add("hide");
+      OSYearlyPrice.classList.remove("hide");
+      LSYearlyPrice.classList.remove("hide");
+      CPYearlyPrice.classList.remove("hide");
+    }
+    if (onlineService === true) {
+      let OSAddOn = onlineServiceAddOn.current;
+      let OSinput = onlineServiceInput.current;
+      OSinput.checked = true;
+      OSAddOn.classList.add("active");
+    }
+    if (largerStorage === true) {
+      let LSAddOn = largerStorageAddOn.current;
+      let LSinput = largerStorageInput.current;
+      LSinput.checked = true;
+      LSAddOn.classList.add("active");
+    }
+    if (customisableProfile === true) {
+      let CPAddOn = customisableProfileAddOn.current;
+      let CPinput = customisableProfileInput.current;
+      CPinput.checked = true;
+      CPAddOn.classList.add("active");
+    }
+  }, []);
+
+  const selectOnlineServiceAddOn = () => {
+    let OSAddOn = onlineServiceAddOn.current;
+    let OSinput = onlineServiceInput.current;
+    if (OSinput.checked === true) {
+      OSinput.checked = false;
+      OSAddOn.classList.remove("active");
+      dispatch(saveOS(false));
+    } else if (OSinput.checked === false) {
+      OSinput.checked = true;
+      OSAddOn.classList.add("active");
+      dispatch(saveOS(true));
+    }
+  };
+
+  const selectLargerStorageAddOn = () => {
+    let LSAddOn = largerStorageAddOn.current;
+    let LSinput = largerStorageInput.current;
+    if (LSinput.checked === true) {
+      LSinput.checked = false;
+      LSAddOn.classList.remove("active");
+      dispatch(saveLS(false));
+    } else if (LSinput.checked === false) {
+      LSinput.checked = true;
+      LSAddOn.classList.add("active");
+      dispatch(saveLS(true));
+    }
+  };
+
+  const selectCustomisableProfileAddOn = () => {
+    let CPAddOn = customisableProfileAddOn.current;
+    let CPinput = customisableProfileInput.current;
+    if (CPinput.checked === true) {
+      CPinput.checked = false;
+      CPAddOn.classList.remove("active");
+      dispatch(saveCP(false));
+    } else if (CPinput.checked === false) {
+      CPinput.checked = true;
+      CPAddOn.classList.add("active");
+      dispatch(saveCP(true));
+    }
+  };
+
   return (
     <>
       <div className="mobileTopBar">
@@ -46,8 +156,8 @@ const StepThree = () => {
         </div>
         <div className="mainContent">
           <div className="addOnsContainer">
-            <h1 className="step1Header">Pick add-ons</h1>
-            <p className="step1SubText">
+            <h1 className="stepHeader">Pick add-ons</h1>
+            <p className="stepSubText">
               Add-ons help enhance your gaming experience.
             </p>
 
@@ -55,12 +165,15 @@ const StepThree = () => {
               <label
                 className="addOn onlineService"
                 htmlFor="onlineServiceCheckbox"
+                ref={onlineServiceAddOn}
+                onClick={selectOnlineServiceAddOn}
               >
                 <div className="checkboxContainer">
                   <input
                     type="checkbox"
                     id="onlineServiceCheckbox"
                     className="checkbox"
+                    ref={onlineServiceInput}
                   ></input>
                 </div>
                 <div className="addOnTextContainer">
@@ -69,11 +182,13 @@ const StepThree = () => {
                 </div>
                 <p
                   className="addOnMonthlyPrice"
+                  ref={onlineServiceMonthlyPrice}
                 >
                   +£1/mo
                 </p>
                 <p
                   className="addOnYearlyPrice hide"
+                  ref={onlineServiceYearlyPrice}
                 >
                   +£10/yr
                 </p>
@@ -81,12 +196,15 @@ const StepThree = () => {
               <label
                 className="addOn largerStorage"
                 htmlFor="largerStorageCheckbox"
+                ref={largerStorageAddOn}
+                onClick={selectLargerStorageAddOn}
               >
                 <div className="checkboxContainer">
                   <input
                     type="checkbox"
                     id="largerStorageCheckbox"
                     className="checkbox"
+                    ref={largerStorageInput}
                   ></input>
                 </div>
                 <div className="addOnTextContainer">
@@ -95,11 +213,13 @@ const StepThree = () => {
                 </div>
                 <p
                   className="addOnMonthlyPrice"
+                  ref={largerStorageMonthlyPrice}
                 >
                   +£2/mo
                 </p>
                 <p
                   className="addOnYearlyPrice hide"
+                  ref={largerStorageYearlyPrice}
                 >
                   +£20/yr
                 </p>
@@ -107,12 +227,15 @@ const StepThree = () => {
               <label
                 className="addOn customisableProfile"
                 htmlFor="customisableProfileCheckbox"
+                ref={customisableProfileAddOn}
+                onClick={selectCustomisableProfileAddOn}
               >
                 <div className="checkboxContainer">
                   <input
                     type="checkbox"
                     id="customisableProfileCheckbox"
                     className="checkbox"
+                    ref={customisableProfileInput}
                   ></input>
                 </div>
                 <div className="addOnTextContainer">
@@ -121,11 +244,13 @@ const StepThree = () => {
                 </div>
                 <p
                   className="addOnMonthlyPrice"
+                  ref={customisableProfileMonthlyPrice}
                 >
                   +£2/mo
                 </p>
                 <p
                   className="addOnYearlyPrice hide"
+                  ref={customisableProfileYearlyPrice}
                 >
                   +£20/yr
                 </p>
@@ -133,26 +258,26 @@ const StepThree = () => {
             </div>
 
             <div className="desktopBtnContainer">
-              <a href="/select-plan">
+              <Link to="/select-plan">
                 <button className="desktopBackBtn">Go Back</button>
-              </a>
-              <a href="/summary">
+              </Link>
+              <Link to="/summary">
                 <button className="desktopNextStepBtn">Next Step</button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
       <div className="mobileBottomBar">
-        <a href="/select-plan">
+        <Link to="/select-plan">
           <button className="mobileBackBtn">Go Back</button>
-        </a>
-        <a href="/summary">
+        </Link>
+        <Link to="/summary">
           <button className="mobileNextStepBtn">Next Step</button>
-        </a>
+        </Link>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default StepThree
+export default StepThree;

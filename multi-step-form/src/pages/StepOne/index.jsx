@@ -211,8 +211,8 @@ const StepOne = () => {
         </div>
         <div className="mainContent">
           <div className="personalInfoContainer">
-            <h1 className="stepHeader">Personal info</h1>
-            <p className="stepSubText">
+            <h1 className="step1Header">Personal info</h1>
+            <p className="step1SubText">
               Please provide your name, email address, and phone number.
             </p>
             <div className="label-error-container">
