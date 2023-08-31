@@ -156,8 +156,8 @@ const StepThree = () => {
         </div>
         <div className="mainContent">
           <div className="addOnsContainer">
-            <h1 className="stepHeader">Pick add-ons</h1>
-            <p className="stepSubText">
+            <h1 className="step1Header">Pick add-ons</h1>
+            <p className="step1SubText">
               Add-ons help enhance your gaming experience.
             </p>
 
