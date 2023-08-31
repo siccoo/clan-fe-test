@@ -20,7 +20,7 @@
 body {
   background-color: var(--magnolia);
   margin: 0;
-  font-family: 'Ubuntu', sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .mainOuterDiv {
@@ -463,6 +463,78 @@ input:checked + .slider:before {
 }
 
 /******************************************/
+/* Step3 Page */
+.addOnOptionContainer {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  margin-bottom: auto;
+}
+
+.addOn:first-of-type {
+  margin-top: 0;
+}
+
+.addOn {
+  border: 1px solid var(--cool_gray);
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+}
+
+.addOn:hover {
+  border: 1px solid var(--purplish_blue);
+}
+
+.addOn.active {
+  border: 1px solid var(--purplish_blue);
+  background-color: var(--alabaster);
+}
+
+.checkboxContainer {
+  margin: 15px 25px 15px 10px;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+}
+
+.checkbox:checked {
+  accent-color: var(--purplish_blue);
+}
+
+.addOnTextContainer {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.addOnName {
+  font-size: 16px;
+  color: var(--marine_blue);
+  font-weight: 500;
+  margin: 0 0 10px 0;
+}
+
+.addOnSubText {
+  font-size: 14px;
+  color: var(--cool_gray);
+  font-weight: 400;
+  margin: 0 0 0 0;
+}
+
+.addOnMonthlyPrice,
+.addOnYearlyPrice {
+  color: var(--purplish_blue);
+}
+
+/******************************************/
 @media screen and (max-width: 992px) {
   .mobileTopBar {
     display: block;
@@ -518,6 +590,21 @@ input:checked + .slider:before {
   .addOnsContainer,
   .summaryContainer {
     padding: 40px 25px 30px 25px;
+  }
+
+  /******************************************/
+  /* Step3 Page */
+  .checkboxContainer {
+    margin: 5px 15px 5px 0;
+  }
+  .addOnName {
+    font-size: 14px;
+  }
+
+  .addOnSubText,
+  .addOnMonthlyPrice,
+  .addOnYearlyPrice {
+    font-size: 12px;
   }
 
   /******************************************/
