@@ -1,10 +1,10 @@
 // import {BrowserRouter, Routes, Route} from "react-router-dom";
-import { StepOne } from "./pages";
+import { StepTwo } from "./pages";
 
 function App() {
   return (
     <div className="mainOuterDiv">
-      <StepOne />
+      <StepTwo />
     </div>
   );
 }
