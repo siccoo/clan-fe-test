@@ -535,6 +535,97 @@ input:checked + .slider:before {
 }
 
 /******************************************/
+/* Step4 Page */
+.summaryContentContainer {
+  background-color: #adbeff14;
+  border-radius: 10px;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+.summaryPlanType,
+.summaryAddOn,
+.summaryTotalContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.summaryPlanTypeName {
+  color: var(--marine_blue);
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  padding-bottom: 10px;
+}
+
+.summaryPlanTypeName::first-letter {
+  text-transform: capitalize;
+}
+
+.summaryPlanTypeChange {
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--cool_gray);
+  margin: 0;
+}
+
+.summaryPlanTypeChange:hover {
+  color: var(--purplish_blue);
+}
+
+.summaryPlanTypePrice {
+  color: var(--marine_blue);
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.summaryLine {
+  height: 1px;
+  background-color: var(--light_gray);
+  margin: 25px 0;
+}
+
+.summaryAddOn {
+  padding-bottom: 20px;
+}
+
+.summaryAddOn:last-of-type {
+  padding: 0;
+}
+
+.summaryAddOnName {
+  font-size: 14px;
+  color: var(--cool_gray);
+  margin: 0;
+}
+
+.summaryAddOnPrice {
+  color: var(--marine_blue);
+  margin: 0;
+}
+
+.summaryTotalContainer {
+  padding: 30px 25px;
+}
+
+.summaryTotalText {
+  font-size: 14px;
+  color: var(--cool_gray);
+  margin: 0;
+}
+
+.summaryTotalPrice {
+  color: var(--purplish_blue);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+/******************************************/
 @media screen and (max-width: 992px) {
   .mobileTopBar {
     display: block;
@@ -593,6 +684,62 @@ input:checked + .slider:before {
   }
 
   /******************************************/
+  /* Step1 Page */
+  .name-label,
+  .email-label,
+  .phone-label,
+  .error-message {
+    font-size: 12px;
+    margin-top: 15px;
+  }
+
+  .name-input,
+  .email-input,
+  .phone-input {
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 5px;
+  }
+
+  /******************************************/
+  /* Step2 Page */
+  .add-ons-error-message {
+    font-size: 14px;
+  }
+
+  .selectPlanContainer {
+    display: block;
+  }
+
+  .billingOptionContainer {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0;
+    margin-top: 25px;
+  }
+
+  .billingOption:first-of-type {
+    margin-top: 0;
+  }
+
+  .billingOption {
+    margin-top: 12px;
+    margin-left: 0;
+    width: 90%;
+    height: 15%;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .billingTypeContainer {
+    margin-top: 25px;
+  }
+
+  .iconContainer {
+    margin: 0 15px auto 0;
+  }
+
+  /******************************************/
   /* Step3 Page */
   .checkboxContainer {
     margin: 5px 15px 5px 0;
@@ -605,6 +752,31 @@ input:checked + .slider:before {
   .addOnMonthlyPrice,
   .addOnYearlyPrice {
     font-size: 12px;
+  }
+
+  /******************************************/
+  /* Step4 Page */
+  .summaryPlanTypeName,
+  .summaryPlanTypePrice,
+  .summaryAddOnPrice {
+    font-size: 14px;
+  }
+
+  .summaryTotalPrice {
+    font-size: 16px;
+  }
+
+  .summaryContentContainer {
+    margin-top: 10px;
+    padding: 20px 15px;
+  }
+
+  .summaryLine {
+    margin: 15px 0;
+  }
+
+  .summaryTotalContainer {
+    padding: 30px 15px 0;
   }
 
   /******************************************/

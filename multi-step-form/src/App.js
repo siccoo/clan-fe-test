@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { StepOne, StepTwo, StepThree } from "./pages";
+import { StepOne, StepTwo, StepThree, StepFour } from "./pages";
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
           <Route path="/" element={<StepOne />} />
           <Route path="/select-plan" element={<StepTwo />} />
           <Route path="/add-ons" element={<StepThree />} />
+          <Route path="/summary" element={<StepFour />} />
         </Routes>
       </BrowserRouter>
     </div>
