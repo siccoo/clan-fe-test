@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { ReactComponent as ThankYouIcon } from "./icon-thank-you.svg";
 
 const StepFive = () => {
@@ -47,9 +49,9 @@ const StepFive = () => {
         </div>
         <div className="mainContent">
           <div className="thankYouContainer">
-            <a href="/">
+            <Link to="/">
               <ThankYouIcon />
-            </a>
+            </Link>
             <h1 className="thankYouStepHeader">Thank you!</h1>
             <p className="thankYouStepSubText">
               Thanks for confirming your subscription! We hope you have fun
