@@ -163,8 +163,8 @@ const StepFour = () => {
         </div>
         <div className="mainContent">
           <div className="summaryContainer">
-            <h1 className="stepHeader">Finishing up </h1>
-            <p className="stepSubText">
+            <h1 className="step1Header">Finishing up </h1>
+            <p className="step1SubText">
               Double-check everything looks OK before confirming.
             </p>
             <div className="summaryContentContainer">
